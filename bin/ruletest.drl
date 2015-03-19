@@ -1,0 +1,33 @@
+//created on: 19/03/2015
+package ruletest
+
+//list any import classes here.
+
+
+
+//declare any global variables here
+
+
+
+
+rule "Your First Rule"
+ruleflow-group "rule_flow"
+    when
+        //conditions
+        $s : Subscriber( budget < 5 )
+    then
+        //actions
+		$s.setApproved(false);
+		System.out.println("less than 5: " + $s);
+end
+
+rule "Your Second Rule"
+ruleflow-group "rule_flow"
+    when
+        //conditions
+        $s : Subscriber( budget >= 5 )
+    then
+        //actions
+		$s.setApproved(true);
+		System.out.println("at least 5: " + $s);
+end
